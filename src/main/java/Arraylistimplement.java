@@ -49,7 +49,7 @@ public class Arraylistimplement<T> implements List <T>{
      */
     @Override
     public boolean contains(Object item) {
-        for (asize=0;asize<capacity;asize++){
+        for ( asize=0; asize<capacity; asize++){
                 if (thedata[asize]==item) {
                     return true;
                 }
@@ -72,7 +72,7 @@ public class Arraylistimplement<T> implements List <T>{
     public Object[] toArray() {
         int i;
         Object arr[]=new Object[capacity];
-        for (asize=0;asize<capacity;asize++){
+        for ( asize=0; asize<capacity; asize++){
             arr[asize]=thedata[asize];
         }
         return arr;
@@ -108,8 +108,8 @@ public class Arraylistimplement<T> implements List <T>{
      */
     @Override
     public boolean remove(Object item) {
-        for(asize=0;asize<capacity;asize++) {
-           if(thedata[asize]==item){
+        for( asize=0; asize<capacity; asize++) {
+           if( thedata[asize]==item){
                for ( int i=asize; i<size(); i++){
                    thedata[asize]=thedata[asize+1];
                }
@@ -119,24 +119,12 @@ public class Arraylistimplement<T> implements List <T>{
         return false;
     }
 
-    @Override
-    public boolean addAll(Collection collection) {
-        return false;
-    }
-
-    @Override
-    public boolean addAll(int i, Collection collection) {
-        return false;
-    }
-
     /**
      * clear() method Removes all of the elements from this list.
      */
     @Override
     public void clear() {
-
         asize=0;
-
     }
 
     /**
@@ -205,9 +193,46 @@ public class Arraylistimplement<T> implements List <T>{
         return -1;
     }
 
+
+    @Override
+    public Object[] toArray(Object[] objects) {
+        objects = new Object[capacity];
+        for (asize = 0; asize < capacity; asize++) {
+            objects[asize] = thedata[asize];
+        }
+        return objects;
+    }
+
+    /**
+     * Returns a view of the portion of this list between the specified fromIndex, inclusive, and toIndex, exclusive.
+     * @param i
+     * @param i1
+     * @return
+     */
+    @Override
+    public List subList(int i, int i1) {
+        T arr[]= (T[]) new Object[capacity];
+        int p=0;
+        for ( int index=i; index<i1; index++){
+            arr[p]=thedata[index];
+            p++;
+        }
+        return Arrays.asList(arr);
+    }
+
+    /**
+     * int lastindexOf(object o)Returns the index of the last occurrence of the specified element in this list, or -1 if this list does not contain the element.
+     * @param o
+     * @return
+     */
     @Override
     public int lastIndexOf(Object o) {
-        return 0;
+        for (int i=this.asize-1; i>=0; i--){
+            if (thedata[i]==o){
+                return i;
+            }
+        }
+        return -1;
     }
 
     @Override
@@ -220,16 +245,41 @@ public class Arraylistimplement<T> implements List <T>{
         return null;
     }
 
+    /**
+     * Appends all of the elements in the specified collection to the end of this list, in the order that they are
+     * returned by the specified collection's Iterator.
+     * @param collection
+     * @return
+     */
     @Override
-    public List subList(int i, int i1) {
-        return null;
+    public boolean addAll(Collection collection) {
+        /*
+        Object arr[]=collection.toArray();
+        int newsize=this.asize+arr.length;
+        for( int i=this.asize;i<newsize;i++){
+            if(newsize<this.capacity){
+                reAllocateCapacity();
+                thedata[i]= (T) arr[i-this.asize];
+            }
+
+        }*/
+        return true;
     }
 
     @Override
-    public boolean retainAll(Collection collection) {
+    public boolean addAll(int i, Collection collection) {
         return false;
     }
+    @Override
+    public boolean retainAll(Collection collection) {
 
+        return false;
+    }
+    /**
+     * Removes from this list all of its elements that are contained in the specified collection.
+     * @param collection
+     * @return
+     */
     @Override
     public boolean removeAll(Collection collection) {
         return false;
@@ -238,12 +288,6 @@ public class Arraylistimplement<T> implements List <T>{
     @Override
     public boolean containsAll(Collection collection) {
         return false;
-    }
-
-
-    @Override
-    public Object[] toArray(Object[] objects) {
-        return new Object[0];
     }
 
 

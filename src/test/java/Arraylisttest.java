@@ -14,6 +14,12 @@ public class Arraylisttest {
         data.add(3);
         data.add(7);
         data.add(9);
+        Arraylistimplement<Integer> data1=new Arraylistimplement<Integer>();
+        data1.add(19);
+        data1.add(20);
+        data1.add(21);
+
+
 
         /**
          * Test public int get(index) method
@@ -78,8 +84,15 @@ public class Arraylisttest {
         //data.remove(1);
         System.out.println(data.size());
         System.out.println("-----------------------------");
+       // data.addAll(data1);
         for (int i=0;i<data.size();i++){
             System.out.println(data.get(i));
         }
+        System.out.println("-----------------------------");
+        for (int i=0;i<data.size();i++){
+            System.out.println(data1.get(i));
+        }
+       //System.out.println( data.subList(0,3));
+        System.out.println(data.lastIndexOf(9));
     }
 }
