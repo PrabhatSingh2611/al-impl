@@ -144,7 +144,7 @@ public class Arraylistimplement<T> implements List <T>{
      * @param item
      */
     @Override
-    public T set(int index, T item) {
+    public  T set(int index, T item) {
         thedata[index]=item;
         return item;
     }
@@ -211,7 +211,10 @@ public class Arraylistimplement<T> implements List <T>{
      */
     @Override
     public List subList(int i, int i1) {
-        T arr[]= (T[]) new Object[capacity];
+        int x=i1;
+        int x1=i;
+       int cap=x-x1;
+        T arr[]= (T[]) new Object[cap];
         int p=0;
         for ( int index=i; index<i1; index++){
             arr[p]=thedata[index];
