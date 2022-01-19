@@ -95,4 +95,3 @@ public class Arraylisttest {
        //System.out.println( data.subList(0,3));
         System.out.println(data.lastIndexOf(9));
     }
-}

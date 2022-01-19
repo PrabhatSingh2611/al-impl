@@ -1,5 +1,7 @@
 import java.util.*;
 
+//Revati
+
 /*
  * the below class Arraylist implements all the methods of List interface.
  */
@@ -79,8 +81,7 @@ public class Arraylistimplement<T> implements List <T>{
     }
 
     /**
-     * add(T item) method appends the specified element to the end of this list.
-     * @param item
+     * add(T item) method appends the specified element to the end of this      * @param item
      * @return
      */
     @Override
